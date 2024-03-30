@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Inventory</h1>
+    <p>Here you can see the list of the items in the inventory.</p>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+        </tr>
+    {% for item in object_list %}
+    
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td><a href="{% url 'delete_ingredient' item.id %}">Delete</a></td>
+            <td><a href="{% url 'update_ingredient' item.id %}">Update</a></td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td><a href="{% url 'add_ingredient' %}">ADD INGREDIENT</a></td>
+        </tr>
+        <tr><td><a href="{% url 'logout' %}">LOGOUT</a></td></tr>
+    
+</table>
+{% endblock %}

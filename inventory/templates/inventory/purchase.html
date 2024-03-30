@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Purchase</h1>
+    <table>
+        <tr>
+            <th>Menu Item</th>
+            <th>Quantity</th>
+            <th>Date of the purchase</th>
+            <th>Total price</th>
+        </tr>
+        {% for item in object_list %}
+
+        <tr>
+            <td>{{ item.menu_item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.timestamp }}</td>
+            <td>{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    <tr><td><a href="{% url 'add_purchase' %}">Add new Purchase</a></td></tr>
+    </table>
+{% endblock %}

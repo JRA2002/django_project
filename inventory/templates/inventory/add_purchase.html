@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Home</h1>
+    <p>Welcome to the inventory management system.</p>
+    <p>Please enter the name of the new Purchase</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+{% endblock %}
