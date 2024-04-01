@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{%  load static %}
 {% block content %}
     <h1>Home</h1>
     <p>Welcome to the inventory application.</p>
-    <img src="inventory.jpg" alt="Inventory">
+    <img src="static/inventory/inventory.jpg" alt="Inventory">
+    <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
 {% endblock %}
