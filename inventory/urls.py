@@ -13,6 +13,7 @@ urlpatterns = [
     path('menu/<pk>/add_recipe_requirements/', views.AddRecipeRequirementsView.as_view(), name='add_recipe_requirements'),
     path('purchase/add_purchase/', views.AddPurchaseView.as_view(), name='add_purchase'),
     path('inventory/<pk>/update', views.UpdateIngredientView.as_view(), name='update_ingredient'),
-    path('logout/', views.LogoutView, name="logout"),
     path("accounts/", include("django.contrib.auth.urls"), name="login"),
+    path("logout/",views.logout_request,name="logout"),
+    
 ]

@@ -9,14 +9,14 @@ from django.contrib.auth import authenticate, login,logout
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-def logout_view(request):
+def logout_request(request):
   logout(request)
   return redirect("home")
+
 class InventoryView(LoginRequiredMixin,ListView):
     model = Ingredient
     template_name = 'inventory/inventory.html'
-    success_url = reverse_lazy('inventory')
+
 
 class HomeView(TemplateView):
     template_name = 'inventory/home.html'
@@ -64,6 +64,3 @@ class UpdateIngredientView(UpdateView):
     form_class = IngredientForm
     success_url = reverse_lazy('inventory')
 
-def LogoutView(request):
-  logout(request)
-  return redirect("home")

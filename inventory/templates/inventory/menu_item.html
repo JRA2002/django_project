@@ -2,23 +2,28 @@
 
 {% block content %}
     <h1>Menu Item</h1>
-    <table>
+    <table class="table">
+        <thead>
         <tr>
-            <th>Menu Item</th>
-            <th>Price</th>
-            <th>Add recipe requirements</th>
+            <th scope="col">Menu Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Add recipe requirements</th>
         </tr>
+        </thead>
         {% for item in object_list %}
-
+        <tbody>
         <tr>
             <td>{{ item.name }}</td>
             <td>{{ item.price }}</td>
+            <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+            
             <td><a href="{% url 'add_recipe_requirements' item.id %}">Add</a></td>
         </tr>
         {% endfor %}
         <td>
             <a href="{% url 'add_menu_item' %}">ADD MENU ITEM</a>
         </td>
+        </tbody>
     </table>
     
 {% endblock %}
